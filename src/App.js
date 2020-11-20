@@ -7,11 +7,10 @@
  */
 
 import React from 'react';
-import { SafeAreaView, StyleSheet, ScrollView, StatusBar } from 'react-native';
+import { SafeAreaView, StyleSheet, View, StatusBar } from 'react-native';
 
 import Footer from './components/Footer';
 
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Home from './pages/Home';
 
 const App = () => {
@@ -23,11 +22,9 @@ const App = () => {
         animated={true}
       />
       <SafeAreaView style={styles.safeAreaView}>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
+        <View style={styles.scrollView}>
           <Home />
-        </ScrollView>
+        </View>
         <Footer />
       </SafeAreaView>
     </>
@@ -40,7 +37,8 @@ const styles = StyleSheet.create({
     alignContent: 'flex-end',
   },
   scrollView: {
-    backgroundColor: Colors.lighter,
+    backgroundColor: 'black',
+    flex: 1,
   },
 });
 
