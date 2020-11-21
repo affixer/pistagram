@@ -10,7 +10,11 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import MoreVerticalIcon from '../components/Icons/MoreVerticalIcon';
+import BookmarkIcon from './Icons/BookmarkIcon';
+import CommentIcon from './Icons/CommentIcon';
+import HeartIcon from './Icons/HeartIcon';
+import MoreVerticalIcon from './Icons/MoreVerticalIcon';
+import ShareIcon from './Icons/ShareIcon';
 
 const Feed = () => {
   const devWidth = useWindowDimensions().width;
@@ -65,6 +69,19 @@ const Feed = () => {
             uri: data.content.link,
           }}
         />
+        <View style={styles.controls}>
+          <View style={styles.likeComments}>
+            <HeartIcon size={34} style={styles.controlIcon} />
+            <CommentIcon size={26} style={styles.controlIcon} />
+            <ShareIcon size={26} style={styles.controlIconNoTransform} />
+          </View>
+          <BookmarkIcon size={26} style={styles.controlIcon} />
+        </View>
+        <View style={styles.details}>
+          <Text style={styles.likes}>91 likes</Text>
+          {/* eslint-disable-next-line react-native/no-inline-styles */}
+          <Text style={[styles.likes, { fontSize: 14 }]}> - Liked by</Text>
+        </View>
       </View>
     </View>
   );
@@ -108,10 +125,39 @@ const styles = StyleSheet.create({
   },
   feedContent: {
     flex: 1,
-    flexDirection: 'row',
   },
   contentImage: {
     resizeMode: 'cover',
+  },
+  controls: {
+    paddingVertical: 7,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  likeComments: {
+    flexDirection: 'row',
+  },
+  controlIcon: {
+    color: 'white',
+    marginHorizontal: 5,
+    transform: [
+      {
+        rotateY: '180deg',
+      },
+    ],
+  },
+  controlIconNoTransform: {
+    color: 'white',
+    marginHorizontal: 7,
+  },
+  details: {
+    flexDirection: 'row',
+    paddingHorizontal: 10,
+    alignItems: 'center',
+  },
+  likes: {
+    color: 'white',
+    fontSize: 13,
   },
 });
 
