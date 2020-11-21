@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <View style={styles.footerView}>
       <TouchableOpacity>
-        <HomeIcon size={25} style={styles.icon} />
+        <HomeIcon size={28} style={styles.icon} />
       </TouchableOpacity>
       <TouchableOpacity>
         <Icon name="search-outline" size={28} style={styles.icon} />

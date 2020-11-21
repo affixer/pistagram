@@ -16,22 +16,8 @@ import HeartIcon from './Icons/HeartIcon';
 import MoreVerticalIcon from './Icons/MoreVerticalIcon';
 import ShareIcon from './Icons/ShareIcon';
 
-const Feed = () => {
+const Feed = ({ data }) => {
   const devWidth = useWindowDimensions().width;
-  const data = {
-    author: 'shrestha_oshan',
-    location: 'Somewhere only we know',
-    thumbnail: 'http://1.gravatar.com/avatar/11ae31d09f61467dc7474e9e66208c96',
-    content: {
-      type: 'image',
-      link:
-        'https://images.unsplash.com/photo-1601758003453-6c950f17727d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=750',
-      dimensions: {
-        width: 750,
-        height: 500,
-      },
-    },
-  };
   const getDynamicStyle = ({ height, width }) => {
     return {
       ...styles.contentImage,
@@ -78,9 +64,19 @@ const Feed = () => {
           <BookmarkIcon size={26} style={styles.controlIcon} />
         </View>
         <View style={styles.details}>
-          <Text style={styles.likes}>91 likes</Text>
-          {/* eslint-disable-next-line react-native/no-inline-styles */}
-          <Text style={[styles.likes, { fontSize: 14 }]}> - Liked by</Text>
+          <Text style={styles.likes}>{`${data.likes} like${
+            data.likes !== 1 ? 's' : ''
+          }`}</Text>
+          {data.peers ? (
+            /* eslint-disable-next-line react-native/no-inline-styles */
+            <Text style={[styles.likes, { fontSize: 14 }]}> - Liked by</Text>
+          ) : null}
+        </View>
+        <View style={styles.captions}>
+          <Text style={styles.caption}>
+            <Text style={[styles.author, styles.bold]}>{data.author} </Text>
+            {data.caption ?? 'Would you take my hand and run away?'}
+          </Text>
         </View>
       </View>
     </View>
@@ -88,6 +84,9 @@ const Feed = () => {
 };
 
 const styles = StyleSheet.create({
+  bold: {
+    fontWeight: '700',
+  },
   feedView: {
     paddingVertical: 5,
     backgroundColor: 'black',
@@ -156,6 +155,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   likes: {
+    color: 'white',
+    fontSize: 13,
+    fontWeight: '700',
+  },
+  captions: {
+    paddingHorizontal: 10,
+  },
+  caption: {
     color: 'white',
     fontSize: 13,
   },
