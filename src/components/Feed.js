@@ -42,11 +42,11 @@ const Feed = ({ data }) => {
           </Pressable>
           <Text style={styles.location}>{data.location}</Text>
         </View>
-        <TouchableOpacity>
-          <Pressable>
+        <Pressable>
+          <TouchableOpacity>
             <MoreVerticalIcon size={22} style={styles.headerOption} />
-          </Pressable>
-        </TouchableOpacity>
+          </TouchableOpacity>
+        </Pressable>
       </View>
       <View style={styles.feedContent}>
         <Image

@@ -6,14 +6,19 @@
  * @flow strict-local
  */
 
+import 'react-native-gesture-handler';
 import React from 'react';
+
 import { SafeAreaView, StyleSheet, View, StatusBar } from 'react-native';
 
 import Footer from './components/Footer';
 
-import Home from './pages/Home';
+import Routes from './routes';
+import { createRouter } from './router';
 
 const App = () => {
+  const [screen, setScreen] = React.useState(Object.keys(Routes)[0]);
+  const Navigator = createRouter(Routes, setScreen);
   return (
     <>
       <StatusBar
@@ -22,10 +27,8 @@ const App = () => {
         animated={true}
       />
       <SafeAreaView style={styles.safeAreaView}>
-        <View style={styles.scrollView}>
-          <Home />
-        </View>
-        <Footer />
+        <View style={styles.scrollView}>{Routes[screen]}</View>
+        <Footer navigate={Navigator.navigate} />
       </SafeAreaView>
     </>
   );

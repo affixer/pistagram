@@ -5,11 +5,17 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import HeartIcon from './Icons/HeartIcon';
 import HomeIcon from './Icons/HomeIcon';
 
-const Footer = () => {
+const Footer = ({ navigate }) => {
   return (
     <View style={styles.footerView}>
       <TouchableOpacity>
-        <HomeIcon size={28} style={styles.icon} />
+        <HomeIcon
+          onPress={() => {
+            navigate('Home');
+          }}
+          size={28}
+          style={styles.icon}
+        />
       </TouchableOpacity>
       <TouchableOpacity>
         <Icon name="search-outline" size={28} style={styles.icon} />
@@ -18,7 +24,14 @@ const Footer = () => {
         <Icon name="add" size={32} style={styles.icon} />
       </TouchableOpacity>
       <TouchableOpacity>
-        <HeartIcon size={34} style={styles.icon} />
+        <HeartIcon
+          onPress={() => {
+            console.log('Pressed');
+            navigate('Activities');
+          }}
+          size={34}
+          style={styles.icon}
+        />
       </TouchableOpacity>
       <TouchableOpacity>
         <Icon name="person-outline" size={28} style={styles.icon} />

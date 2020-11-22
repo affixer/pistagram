@@ -58,7 +58,7 @@ const data = [
   },
 ];
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const [refreshing, setRefreshingState] = React.useState(false);
   const refresh = React.useCallback(() => {
     setRefreshingState(true);
