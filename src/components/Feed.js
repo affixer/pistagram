@@ -94,6 +94,7 @@ const styles = StyleSheet.create({
   feedHeader: {
     padding: 10,
     flexDirection: 'row',
+    alignItems: 'center',
   },
   feedAvatarView: {
     width: 32.5,
