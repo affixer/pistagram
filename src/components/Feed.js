@@ -57,7 +57,7 @@ const Feed = ({ data }) => {
         />
         <View style={styles.controls}>
           <View style={styles.likeComments}>
-            <HeartIcon size={34} style={styles.controlIcon} />
+            <HeartIcon size={30} style={styles.controlIcon} />
             <CommentIcon size={26} style={styles.controlIcon} />
             <ShareIcon size={26} style={styles.controlIconNoTransform} />
           </View>

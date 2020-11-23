@@ -50,7 +50,7 @@ const data = [
     content: {
       type: 'image',
       link:
-        'https://images.unsplash.com/photo-1601758003453-6c950f17727d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=',
+        'https://images.unsplash.com/photo-1601758003453-6c950f17727d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=750',
       dimensions: {
         width: 750,
         height: 500,

@@ -43,7 +43,7 @@ const Footer = ({ navigation }) => {
       <HeartIcon
         screen={screen}
         onPress={() => openTab('Activities')}
-        size={30}
+        size={28}
         style={styles.icon}
       />
       <Icon
