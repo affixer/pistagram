@@ -1,14 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
 
 const Header = (props) => {
   return (
     <View style={styles.headerView}>
       <Text style={styles.headerText}>{props.title}</Text>
-      <TouchableOpacity>
-        <Icon name="chatbubble-outline" size={28} style={styles.icon} />
-      </TouchableOpacity>
+      {props.icon ? <TouchableOpacity>{props.icon}</TouchableOpacity> : null}
     </View>
   );
 };
@@ -35,9 +32,6 @@ const styles = StyleSheet.create({
       height: -5,
     },
     shadowOpacity: 1,
-  },
-  icon: {
-    color: 'white',
   },
 });
 

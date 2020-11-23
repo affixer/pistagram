@@ -2,10 +2,38 @@ import React from 'react';
 import { View, RefreshControl, FlatList, StyleSheet } from 'react-native';
 
 import Activity from '../components/Activity';
+import Header from '../components/Header';
 
 const data = [
   {
     id: 123123,
+    type: 'like',
+    content: {
+      originUser: 'dia_manandhar',
+      post: '232411773',
+    },
+    _t: new Date(Date.now()).toTimeString(),
+  },
+  {
+    id: 23,
+    type: 'like',
+    content: {
+      originUser: 'dia_manandhar',
+      post: '232411773',
+    },
+    _t: new Date(Date.now()).toTimeString(),
+  },
+  {
+    id: 3123,
+    type: 'like',
+    content: {
+      originUser: 'dia_manandhar',
+      post: '232411773',
+    },
+    _t: new Date(Date.now()).toTimeString(),
+  },
+  {
+    id: 23123,
     type: 'like',
     content: {
       originUser: 'dia_manandhar',
@@ -24,8 +52,9 @@ const Activities = () => {
     }, 1500);
   }, []);
   return (
-    <View>
-      <View style={styles.feedView}>
+    <View style={styles.container}>
+      <Header title="Activity" />
+      <View style={styles.activityView}>
         <FlatList
           data={data}
           renderItem={({ item }) => <Activity data={item} />}
@@ -47,7 +76,13 @@ const Activities = () => {
 };
 
 const styles = StyleSheet.create({
-  feedView: { marginBottom: 100 },
+  container: {
+    flexDirection: 'column',
+  },
+  activityView: {
+    marginBottom: 100,
+    backgroundColor: 'blue',
+  },
 });
 
 export default Activities;

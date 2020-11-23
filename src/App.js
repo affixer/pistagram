@@ -11,14 +11,11 @@ import React from 'react';
 
 import { SafeAreaView, StyleSheet, View, StatusBar } from 'react-native';
 
-import Footer from './components/Footer';
+import { NavigationContainer } from '@react-navigation/native';
 
-import Routes from './routes';
-import { createRouter } from './router';
+import TabNavigation from './components/TabNavigation';
 
 const App = () => {
-  const [screen, setScreen] = React.useState(Object.keys(Routes)[0]);
-  const Navigator = createRouter(Routes, setScreen);
   return (
     <>
       <StatusBar
@@ -27,8 +24,11 @@ const App = () => {
         animated={true}
       />
       <SafeAreaView style={styles.safeAreaView}>
-        <View style={styles.scrollView}>{Routes[screen]}</View>
-        <Footer navigate={Navigator.navigate} />
+        <View style={styles.scrollView}>
+          <NavigationContainer>
+            <TabNavigation />
+          </NavigationContainer>
+        </View>
       </SafeAreaView>
     </>
   );

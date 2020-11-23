@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, RefreshControl, FlatList, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import Header from '../components/Header';
 import Feed from '../components/Feed';
@@ -68,7 +69,9 @@ const Home = ({ navigation }) => {
   }, []);
   return (
     <View>
-      <Header />
+      <Header
+        icon={<Icon name="chatbubble-outline" size={28} style={styles.icon} />}
+      />
       <View style={styles.feedView}>
         <FlatList
           data={data}
@@ -92,6 +95,9 @@ const Home = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   feedView: { marginBottom: 100 },
+  icon: {
+    color: 'white',
+  },
 });
 
 export default Home;

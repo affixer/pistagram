@@ -6,7 +6,10 @@ const Activity = ({ data }) => {
   return (
     <Pressable>
       <View style={styles.activityView}>
-        <Text style={{ color: 'white' }}>{data.id}</Text>
+        <Text style={styles.activity}>
+          <Text style={styles.bold}>@{data.content.originUser}</Text> liked your
+          post.
+        </Text>
       </View>
     </Pressable>
   );
@@ -17,8 +20,11 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   activityView: {
-    paddingVertical: 5,
+    padding: 10,
     backgroundColor: 'black',
+  },
+  activity: {
+    color: 'white',
   },
 });
 

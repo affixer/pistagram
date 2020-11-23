@@ -1,41 +1,56 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import HeartIcon from './Icons/HeartIcon';
 import HomeIcon from './Icons/HomeIcon';
 
-const Footer = ({ navigate }) => {
+const Footer = ({ navigation }) => {
+  const [screen, changeScreen] = React.useState('Home');
+  const [routes, setRoutes] = React.useState([]);
+  React.useState(() => {
+    setRoutes(navigation.dangerouslyGetState().routeNames);
+  }, []);
+  const openTab = (name) => {
+    if (!name || name === screen) {
+      return;
+    }
+    if (!routes.includes(name)) {
+      console.warn(`Tab '${name}' does not exist.`);
+      return;
+    }
+    navigation.navigate(name);
+    changeScreen(name);
+  };
   return (
     <View style={styles.footerView}>
-      <TouchableOpacity>
-        <HomeIcon
-          onPress={() => {
-            navigate('Home');
-          }}
-          size={28}
-          style={styles.icon}
-        />
-      </TouchableOpacity>
-      <TouchableOpacity>
-        <Icon name="search-outline" size={28} style={styles.icon} />
-      </TouchableOpacity>
-      <TouchableOpacity>
-        <Icon name="add" size={32} style={styles.icon} />
-      </TouchableOpacity>
-      <TouchableOpacity>
-        <HeartIcon
-          onPress={() => {
-            console.log('Pressed');
-            navigate('Activities');
-          }}
-          size={34}
-          style={styles.icon}
-        />
-      </TouchableOpacity>
-      <TouchableOpacity>
-        <Icon name="person-outline" size={28} style={styles.icon} />
-      </TouchableOpacity>
+      <HomeIcon
+        screen={screen}
+        onPress={() => openTab('Home')}
+        size={28}
+        style={styles.icon}
+      />
+      <Icon
+        name={`search${screen === 'Search' ? '' : '-outline'}`}
+        size={28}
+        style={styles.icon}
+      />
+      <Icon
+        name={`add${screen === 'Add' ? '-circle-outline' : ''}`}
+        size={32}
+        style={styles.icon}
+      />
+      <HeartIcon
+        screen={screen}
+        onPress={() => openTab('Activities')}
+        size={30}
+        style={styles.icon}
+      />
+      <Icon
+        name={`person${screen === 'Profile' ? '' : '-outline'}`}
+        size={28}
+        style={styles.icon}
+      />
     </View>
   );
 };

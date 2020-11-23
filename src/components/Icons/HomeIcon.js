@@ -5,7 +5,10 @@ import { TouchableOpacity } from 'react-native';
 
 const HomeIcon = (props) => (
   <TouchableOpacity>
-    <Icon name="home-variant" {...props} />
+    <Icon
+      name={`home-variant${props.screen === 'Home' ? '' : '-outline'}`}
+      {...props}
+    />
   </TouchableOpacity>
 );
 
