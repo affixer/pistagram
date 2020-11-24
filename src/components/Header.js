@@ -5,7 +5,7 @@ const Header = (props) => {
   return (
     <View style={styles.headerView}>
       <Text style={styles.headerText}>{props.title}</Text>
-      {props.icon ? <TouchableOpacity>{props.icon}</TouchableOpacity> : null}
+      {props.icon ? <>{props.icon}</> : null}
     </View>
   );
 };

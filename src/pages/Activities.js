@@ -6,6 +6,25 @@ import Header from '../components/Header';
 
 const data = [
   {
+    id: 2363123,
+    type: 'like',
+    content: {
+      thumbnail:
+        'https://pyxis.nymag.com/v1/imgs/ee7/b83/d84ced4fac4828bce0b45088d80c8c082b-10-constance-wu.rsquare.w1200.jpg',
+      originUser: '_suniti_sainju_',
+      post: {
+        id: 78634,
+        thumbnail: {
+          link:
+            'https://images.unsplash.com/photo-1601758003453-6c950f17727d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=100',
+          width: 100,
+          height: 65,
+        },
+      },
+    },
+    _t: new Date(Date.now()).toTimeString(),
+  },
+  {
     id: 123123,
     type: 'like',
     content: {
@@ -19,6 +38,26 @@ const data = [
             'https://images.unsplash.com/photo-1601758175576-648226072e90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=100',
           width: 100,
           height: 65,
+        },
+      },
+    },
+    _t: new Date(Date.now()).toTimeString(),
+  },
+  {
+    id: 31523,
+    type: 'comment',
+    content: {
+      thumbnail:
+        'https://i.pinimg.com/236x/2f/20/ca/2f20cae36c488c55fd6db6729b45b9fe.jpg',
+      originUser: 'jenny_tmg',
+      comment: 'lauuu!!! cat kaile lyayau feri!!!',
+      post: {
+        id: 78634,
+        thumbnail: {
+          link:
+            'https://images.unsplash.com/photo-1601758003453-6c950f17727d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=100',
+          width: 100,
+          height: 67,
         },
       },
     },
@@ -63,6 +102,26 @@ const data = [
     _t: new Date(Date.now()).toTimeString(),
   },
   {
+    id: 314523,
+    type: 'comment',
+    content: {
+      thumbnail:
+        'https://pbs.twimg.com/profile_images/1236735749967372288/h2_MoJNK_400x400.jpg',
+      originUser: 'bhumiicha_',
+      comment: "Wow! Such a cute doggy. What's its name?",
+      post: {
+        id: 78634,
+        thumbnail: {
+          link:
+            'https://images.unsplash.com/photo-1601758003453-6c950f17727d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=100',
+          width: 100,
+          height: 67,
+        },
+      },
+    },
+    _t: new Date(Date.now()).toTimeString(),
+  },
+  {
     id: 2378123,
     type: 'like',
     content: {
@@ -78,6 +137,17 @@ const data = [
           height: 65,
         },
       },
+    },
+    _t: new Date(Date.now()).toTimeString(),
+  },
+  {
+    id: 312583,
+    type: 'follow',
+    private: false,
+    content: {
+      thumbnail:
+        'https://pbs.twimg.com/profile_images/1236735749967372288/h2_MoJNK_400x400.jpg',
+      originUser: 'bhumiicha_',
     },
     _t: new Date(Date.now()).toTimeString(),
   },
@@ -116,6 +186,61 @@ const data = [
           height: 125,
         },
       },
+    },
+    _t: new Date(Date.now()).toTimeString(),
+  },
+  {
+    id: 31258153,
+    type: 'follow',
+    private: false,
+    content: {
+      thumbnail:
+        'https://i0.wp.com/www.engage-innovate.com/wp-content/uploads/2019/01/Jolene-Foo-Profile-Square.jpg',
+      originUser: 'manandhar.dia',
+    },
+    _t: new Date(Date.now()).toTimeString(),
+  },
+  {
+    id: 372583,
+    type: 'follow',
+    private: false,
+    content: {
+      thumbnail:
+        'https://www.marryadevotee.com/krishnaa/wp-content/uploads/avatars/8057/574eee7a43797-bpfull.jpg',
+      originUser: 'tyrafero',
+    },
+    _t: new Date(Date.now()).toTimeString(),
+  },
+  {
+    id: 39883,
+    type: 'follow',
+    private: false,
+    content: {
+      thumbnail:
+        'https://i1.rgstatic.net/ii/profile.image/525776623595522-1502366323662_Q512/Nilesh_Mate3.jpg',
+      originUser: 'niles_shrestha',
+    },
+    _t: new Date(Date.now()).toTimeString(),
+  },
+  {
+    id: 372,
+    type: 'follow',
+    private: false,
+    content: {
+      thumbnail:
+        'https://pyxis.nymag.com/v1/imgs/ee7/b83/d84ced4fac4828bce0b45088d80c8c082b-10-constance-wu.rsquare.w1200.jpg',
+      originUser: '_suniti_sainju_',
+    },
+    _t: new Date(Date.now()).toTimeString(),
+  },
+  {
+    id: 35583,
+    type: 'follow',
+    private: false,
+    content: {
+      thumbnail:
+        'https://i.pinimg.com/236x/2f/20/ca/2f20cae36c488c55fd6db6729b45b9fe.jpg',
+      originUser: 'jenny_tmg',
     },
     _t: new Date(Date.now()).toTimeString(),
   },

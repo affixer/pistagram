@@ -48,7 +48,8 @@ const Footer = ({ navigation }) => {
       />
       <Icon
         name={`person${screen === 'Profile' ? '' : '-outline'}`}
-        size={28}
+        onPress={() => openTab('Profile')}
+        size={27}
         style={styles.icon}
       />
     </View>

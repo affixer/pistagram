@@ -2,24 +2,32 @@ import React from 'react';
 
 import { Image, View, Text, StyleSheet, Pressable } from 'react-native';
 
+const getDimensions = (thumbnail) => {
+  const width = 45;
+  return {
+    width,
+    height: width * (thumbnail.height / thumbnail.width),
+  };
+};
+
 const Activity = ({ data }) => {
+  const type = data.type.toLowerCase();
   return (
     <Pressable>
       <View style={styles.activityView}>
-        <LikeActivity data={data} />
+        {type === 'like' ? (
+          <LikeActivity data={data} />
+        ) : type === 'comment' ? (
+          <CommentActivity data={data} />
+        ) : type === 'follow' ? (
+          <FollowActivity data={data} />
+        ) : null}
       </View>
     </Pressable>
   );
 };
 
-const LikeActivity = ({ data }) => {
-  const getDimensions = (thumbnail) => {
-    const width = 45;
-    return {
-      width,
-      height: width * (thumbnail.height / thumbnail.width),
-    };
-  };
+const FollowActivity = ({ data }) => {
   return (
     <Pressable onPress={() => console.log(data.id)}>
       <View style={styles.likeActivity}>
@@ -31,7 +39,57 @@ const LikeActivity = ({ data }) => {
         </View>
         <View style={styles.activityInfo}>
           <Text style={styles.activityText}>
-            <Text style={styles.bold}>@{data.content.originUser}</Text> liked
+            <Text style={styles.bold}>{data.content.originUser}</Text>{' '}
+            {data.private
+              ? 'has requested to follow you.'
+              : 'started following you.'}
+          </Text>
+        </View>
+      </View>
+    </Pressable>
+  );
+};
+
+const CommentActivity = ({ data }) => {
+  return (
+    <Pressable onPress={() => console.log(data.id)}>
+      <View style={styles.likeActivity}>
+        <View style={styles.thumbnail}>
+          <Image
+            style={styles.thumbnailImage}
+            source={{ uri: data.content.thumbnail }}
+          />
+        </View>
+        <View style={styles.activityInfo}>
+          <Text style={styles.activityText}>
+            <Text style={styles.bold}>{data.content.originUser}</Text>{' '}
+            commented: {data.content.comment}
+          </Text>
+        </View>
+        <View style={styles.preview}>
+          <Image
+            style={getDimensions(data.content.post.thumbnail)}
+            source={{ uri: data.content.post.thumbnail.link }}
+          />
+        </View>
+      </View>
+    </Pressable>
+  );
+};
+
+const LikeActivity = ({ data }) => {
+  return (
+    <Pressable onPress={() => console.log(data.id)}>
+      <View style={styles.likeActivity}>
+        <View style={styles.thumbnail}>
+          <Image
+            style={styles.thumbnailImage}
+            source={{ uri: data.content.thumbnail }}
+          />
+        </View>
+        <View style={styles.activityInfo}>
+          <Text style={styles.activityText}>
+            <Text style={styles.bold}>{data.content.originUser}</Text> liked
             your post.
           </Text>
         </View>
