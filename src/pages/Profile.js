@@ -1,35 +1,77 @@
 import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { Button, Image, StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import Header from '../components/Header';
 
 const profile = {
   handle: 'shrestha_oshan',
+  name: 'Oshan Shrestha',
+  bio: 'I code. I travel. I eat.',
   displayPicture:
     'http://1.gravatar.com/avatar/11ae31d09f61467dc7474e9e66208c96',
+  website: 'lintr.ee/shresthaoshan',
+  stat: {
+    posts: 165,
+    followers: 397,
+    following: 409,
+  },
 };
+
+const ProfileContext = React.createContext();
 
 const Profile = () => {
   return (
-    <View style={styles.profileView}>
-      <Header
-        title={profile.handle}
-        icon={
-          <View style={styles.headerIcons}>
-            <Icon name="add" size={28} style={styles.icon} />
-            <Icon name="menu-outline" size={28} style={styles.icon} />
+    <ProfileContext.Provider value={profile}>
+      <View style={styles.profileView}>
+        <Header
+          title={profile.handle}
+          icon={
+            <View style={styles.headerIcons}>
+              <Icon name="add" size={28} style={styles.icon} />
+              <Icon name="menu-outline" size={28} style={styles.icon} />
+            </View>
+          }
+        />
+        <View style={styles.profileData}>
+          <View style={styles.profile}>
+            <ProfileHeading data={profile} />
+            <ProfileStat data={profile} />
           </View>
-        }
-      />
-      <View style={styles.profile}>
-        <ProfileHeading data={profile} />
+          <View style={styles.buttons}>
+            <Button
+              title="Edit Profile"
+              type="outline"
+              onPress={() => console.log('Edit Profile Now')}
+            />
+          </View>
+        </View>
+      </View>
+    </ProfileContext.Provider>
+  );
+};
+const ProfileStat = () => {
+  const { stat } = React.useContext(ProfileContext);
+  return (
+    <View style={styles.statView}>
+      <View style={styles.stat}>
+        <Text style={styles.statData}>{stat.posts}</Text>
+        <Text style={styles.statInfo}>Posts</Text>
+      </View>
+      <View style={styles.stat}>
+        <Text style={styles.statData}>{stat.followers}</Text>
+        <Text style={styles.statInfo}>Followers</Text>
+      </View>
+      <View style={styles.stat}>
+        <Text style={styles.statData}>{stat.following}</Text>
+        <Text style={styles.statInfo}>Following</Text>
       </View>
     </View>
   );
 };
 
-const ProfileHeading = ({ data }) => {
+const ProfileHeading = () => {
+  const data = React.useContext(ProfileContext);
   return (
     <View style={styles.profileHeading}>
       <View style={styles.displayPicture}>
@@ -38,6 +80,11 @@ const ProfileHeading = ({ data }) => {
           source={{ uri: data.displayPicture }}
         />
       </View>
+      <Text style={styles.name}>{data.name}</Text>
+      <Text style={styles.bio}>{data.bio ?? ''}</Text>
+      {data.website ? (
+        <Text style={styles.website}>{data.website ?? ''}</Text>
+      ) : null}
     </View>
   );
 };
@@ -45,6 +92,7 @@ const ProfileHeading = ({ data }) => {
 const styles = StyleSheet.create({
   profileView: {
     flex: 1,
+    backgroundColor: 'black',
   },
   headerIcons: {
     flexDirection: 'row',
@@ -53,9 +101,12 @@ const styles = StyleSheet.create({
     color: 'white',
     marginHorizontal: 5,
   },
+  profile: {
+    flexDirection: 'row',
+  },
   profileHeading: {
-    backgroundColor: 'black',
     paddingHorizontal: 10,
+    paddingBottom: 10,
   },
   displayPicture: {
     marginVertical: 10,
@@ -64,6 +115,45 @@ const styles = StyleSheet.create({
     width: 90,
     height: 90,
     borderRadius: 50,
+  },
+  name: {
+    color: 'white',
+    fontSize: 15,
+  },
+  bio: {
+    color: 'white',
+    fontSize: 14,
+  },
+  website: {
+    color: 'lightblue',
+    fontSize: 14,
+  },
+  statView: {
+    flex: 1,
+    flexDirection: 'row',
+    height: 100,
+    justifyContent: 'space-between',
+    padding: 10,
+  },
+  stat: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  statData: {
+    color: 'white',
+    fontSize: 18,
+  },
+  statInfo: {
+    color: 'white',
+    fontSize: 13,
+  },
+  buttons: {
+    paddingHorizontal: 10,
+    marginVertical: 10,
+  },
+  feedView: {
+    flex: 1,
+    backgroundColor: 'blue',
   },
 });
 
