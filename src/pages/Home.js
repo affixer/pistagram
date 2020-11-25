@@ -16,7 +16,7 @@ const data = [
     content: {
       type: 'image',
       link:
-        'https://images.unsplash.com/photo-1601758175576-648226072e90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=770',
+        'https://images.unsplash.com/photo-1601758175576-648226072e90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1400',
       dimensions: {
         width: 750,
         height: 500,
@@ -33,10 +33,10 @@ const data = [
     content: {
       type: 'image',
       link:
-        'https://images.unsplash.com/photo-1605885898627-1121a2a1ff25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=401',
+        'https://images.unsplash.com/photo-1605885898627-1121a2a1ff25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1400',
       dimensions: {
-        width: 401,
-        height: 501,
+        width: 400,
+        height: 500,
       },
     },
   },
@@ -50,7 +50,7 @@ const data = [
     content: {
       type: 'image',
       link:
-        'https://images.unsplash.com/photo-1601758003453-6c950f17727d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=750',
+        'https://images.unsplash.com/photo-1601758003453-6c950f17727d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1250',
       dimensions: {
         width: 750,
         height: 500,

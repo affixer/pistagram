@@ -1,14 +1,15 @@
 import React from 'react';
 
 import {
+  ActivityIndicator,
   View,
   Text,
   StyleSheet,
-  Image,
   Pressable,
   useWindowDimensions,
   TouchableOpacity,
 } from 'react-native';
+import { Image } from 'react-native-elements';
 
 import BookmarkIcon from './Icons/BookmarkIcon';
 import CommentIcon from './Icons/CommentIcon';
@@ -54,6 +55,7 @@ const Feed = ({ data }) => {
           source={{
             uri: data.content.link,
           }}
+          PlaceholderContent={<ActivityIndicator color="white" />}
         />
         <View style={styles.controls}>
           <View style={styles.likeComments}>

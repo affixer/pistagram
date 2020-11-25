@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
+import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import Header from '../components/Header';
@@ -38,16 +39,54 @@ const Profile = () => {
             <ProfileHeading data={profile} />
             <ProfileStat data={profile} />
           </View>
-          <View style={styles.buttons}>
-            <Button
-              title="Edit Profile"
-              type="outline"
-              onPress={() => console.log('Edit Profile Now')}
-            />
-          </View>
+          <ProfileControls />
         </View>
       </View>
     </ProfileContext.Provider>
+  );
+};
+
+const ProfileControls = () => {
+  return (
+    <View style={styles.buttons}>
+      <Button
+        title="Edit Profile"
+        type="outline"
+        onPress={() => console.log('Edit Profile Now')}
+        buttonStyle={styles.buttonStyle}
+        titleStyle={styles.buttonTextStyle}
+      />
+      <View style={styles.buttonGroup}>
+        <View style={styles.groupedButton}>
+          <Button
+            title="Promotions"
+            type="outline"
+            onPress={() => console.log('Promote')}
+            buttonStyle={styles.buttonStyle}
+            titleStyle={styles.buttonTextStyle}
+          />
+        </View>
+        <View style={styles.groupedButton}>
+          <Button
+            title="Insights"
+            type="outline"
+            onPress={() => console.log('Insights Now')}
+            // eslint-disable-next-line react-native/no-inline-styles
+            buttonStyle={[styles.buttonStyle, { marginHorizontal: 5 }]}
+            titleStyle={styles.buttonTextStyle}
+          />
+        </View>
+        <View style={styles.groupedButton}>
+          <Button
+            title="Contact"
+            type="outline"
+            onPress={() => console.log('Contact Now')}
+            buttonStyle={styles.buttonStyle}
+            titleStyle={styles.buttonTextStyle}
+          />
+        </View>
+      </View>
+    </View>
   );
 };
 const ProfileStat = () => {
@@ -154,6 +193,22 @@ const styles = StyleSheet.create({
   feedView: {
     flex: 1,
     backgroundColor: 'blue',
+  },
+  buttonStyle: {
+    borderColor: 'grey',
+    borderWidth: 1,
+    backgroundColor: 'black',
+  },
+  buttonTextStyle: {
+    color: 'white',
+    fontSize: 15,
+  },
+  buttonGroup: {
+    marginVertical: 5,
+    flexDirection: 'row',
+  },
+  groupedButton: {
+    flex: 1 / 3,
   },
 });
 
